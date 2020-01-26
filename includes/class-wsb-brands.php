@@ -257,6 +257,10 @@ class Wsb_Brands {
 		$this->loader->add_filter( 'pre_get_document_title', $plugin_public, 'change_document_title');
 		$this->loader->add_filter( 'woocommerce_show_page_title', $plugin_public, 'change_page_title');
 		$this->loader->add_filter( 'woocommerce_product_tabs', $plugin_public, 'wsb_brands_product_tab' );
+		/**
+	 	 * @since    1.1
+		**/
+		$this->loader->add_filter( 'woocommerce_structured_data_product', $plugin_public, 'wsb_brands_add_brand_to_structured_data', 10, 2 );
 
 	}
 	

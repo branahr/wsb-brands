@@ -3,9 +3,9 @@ Contributors: branahr
 Donate link: https://www.paypal.me/branahr
 Tags: brands, manufacturers, brand taxonomy, woocommerce, woocommerce brands, brands addon
 Requires at least: 4.6
-Tested up to: 5.2
+Tested up to: 5.3
 Requires PHP: 5.6
-Stable tag: 1.0.7
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,10 +26,11 @@ Since version 1.0.5 you can limit WooCommerce coupon usage to brand(s) and combi
 
 - PHP version 5.6 and above
 - Wordpress version 4.7 and above
-- Woocommerce plugin installed and enabled (v 3.3 and above)
+- Woocommerce plugin installed and enabled (v 3.5 and above)
 
 ### Features ###
 
+* Brand added to Google Structured data (WooCommerce product schema)
 * WooCommerce Coupon restriction per brands
 * Unlimited number of brands
 * Name, slug, description, website url and logo
@@ -140,6 +141,17 @@ Detailed documentation is located at the [WSB Brands](https://www.webstudiobrana
 12. Brands carousel widget settings
 
 == Changelog ==
+
+
+== 1.1.2 ==
+* Fix: hidden Parent Category in product category edit page
+
+== 1.1 ==
+* Feature: "Brand" added to WooCommerce product schema (Google Structured data)
+* Enhancement: Export/Import Brand names without brackets and quotes
+
+== 1.0.8 ==
+* Fix: hidden Parent Category error in admin panel
 
 == 1.0.7 ==
 * Fix: error with logo alignment on Brand archive page

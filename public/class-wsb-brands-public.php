@@ -446,4 +446,20 @@ class Wsb_Brands_Public {
     <?php 
 	}
 
+	/**
+	 * Adding brand to structured data for single product.
+	 *
+	 * @since    1.1
+	 */
+	function wsb_brands_add_brand_to_structured_data( $markup, $product ) {
+		if( is_product() ){
+			$id = $product->get_id();
+			$brand = get_the_terms( $id, 'wsb_brands' );
+			if( $brand ){
+				$markup['brand'] = $brand[0]->name;
+			}
+		} 
+		return $markup;
+	}
+
 }

@@ -59,6 +59,9 @@ class Wsb_Brands_Admin {
 	 */
 	public function enqueue_styles() {
 
+		global $pagenow, $taxnow ;
+		if ( ( "edit-tags.php" == $pagenow && "wsb_brands" != $taxnow ) || ( "term.php" == $pagenow && "wsb_brands" != $taxnow ) ) return;
+
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wsb-brands-admin.css', array(), $this->version, 'all' );
 
@@ -737,11 +740,11 @@ class Wsb_Brands_Admin {
 	function wsb_brands_export( $value, $product ) {
 		$brands = get_terms( array( 'object_ids' => $product->get_ID(), 'taxonomy' => 'wsb_brands' ) );
 		if ( ! is_wp_error( $brands ) ) {
-			$data = array();
-			foreach ( (array) $brands as $brand ) {
-				$data[] = $brand->name;
+			if( ! empty ($brands)){
+				$value = $brands[0]->name;
+			} else {
+				$value = "";
 			}
-			$value = json_encode( $data );
 		}
 		return $value;
 	}
@@ -775,14 +778,10 @@ class Wsb_Brands_Admin {
 	   **/
 	function wsb_parse_brand_json( $parsed_data, $importer ) {
 		if ( ! empty( $parsed_data[ 'wsb_brands' ] ) ) {
-			$data = json_decode( $parsed_data[ 'wsb_brands' ], true );
+			$data = $parsed_data[ 'wsb_brands' ];
 			unset( $parsed_data[ 'wsb_brands' ] );
-			if ( is_array( $data ) ) {
-				$parsed_data[ 'wsb_brands' ] = array();
-				foreach ( $data as $term_id ) {
-					$parsed_data[ 'wsb_brands' ][] = $term_id;
-				}
-			}
+			$parsed_data[ 'wsb_brands' ] = array();
+			$parsed_data[ 'wsb_brands' ][] = $data;	
 		}
 		return $parsed_data;
 	}
