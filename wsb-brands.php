@@ -9,11 +9,11 @@
  * Plugin Name:     	 WSB Brands
  * Plugin URI:       	 https://www.webstudiobrana.com/wsb-brands-plugin-for-woocommerce/
  * Description:       	 Brands / manufacturers plugin for Woocommerce
- * Version:          	 1.0.7
+ * Version:          	 1.1.2
  * Author:            	 Branko Borilovic
  * Author URI:        	 https://profiles.wordpress.org/branahr
- * WC requires at least: 3.3
- * WC tested up to: 	 3.7.2
+ * WC requires at least: 3.5
+ * WC tested up to: 	 3.8.1
  * License:          	 GPL-2.0+
  * License URI:    		 http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:     	 wsb-brands
@@ -34,7 +34,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 /**
  * Current plugin version.
  */
-define( 'WSB_BRANDS_VERSION', '1.0.7' );
+define( 'WSB_BRANDS_VERSION', '1.1.2' );
 
 /**
  * The code that runs during plugin activation.
